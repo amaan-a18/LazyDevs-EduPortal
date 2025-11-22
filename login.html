@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body style="margin:0; padding:0; background:#121212; font-family:Arial, sans-serif; height:100vh; display:flex; justify-content:center; align-items:center;">
+
+    <div style="background:#1e1e1e; padding:40px; border-radius:12px; width:320px; box-shadow:0 0 15px rgba(0,0,0,0.4); text-align:center;">
+        
+        <h2 style="color:white; margin-bottom:15px;">Login</h2>
+
+        <!-- ERROR MESSAGE -->
+        <?php if (isset($_GET['error'])): ?>
+            <div style="background:#ff3b3b; color:white; padding:10px; border-radius:5px; margin-bottom:15px;">
+                Invalid username or password
+            </div>
+        <?php endif; ?>
+
+        <form action="login.php" method="POST" style="display:flex; flex-direction:column; gap:15px;">
+            
+            <input 
+                type="text" 
+                name="username" 
+                placeholder="Username" 
+                required
+                style="padding:12px; border-radius:6px; border:none; background:#2c2c2c; color:white; font-size:15px;"
+            >
+
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Password" 
+                required
+                style="padding:12px; border-radius:6px; border:none; background:#2c2c2c; color:white; font-size:15px;"
+            >
+
+            <button 
+                type="submit"
+                style="padding:12px; border-radius:6px; border:none; background:#4a90e2; color:white; font-size:16px; cursor:pointer; font-weight:bold;"
+            >
+                Login
+            </button>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Elements</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --primary: #58a6ff;
+      --secondary: #58a6ff;
+      --text: #e0e0e0;
+      --muted: #888;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--surface);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    header p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.4);
+    }
+    h2 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--secondary);
+      padding-left: 0.5rem;
+    }
+    code {
+      background: #2a2a2a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: "Fira Code", monospace;
+      color: #f8f8f2;
+    }
+    pre {
+      background: #2a2a2a;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+    ul {
+      margin-left: 1.2rem;
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML Elements </h1>
+    <p>Deep dive into every essential HTML element with syntax, semantics, and live examples.</p>
+  </header>
+
+  <main>
+    <section id="root">
+      <h2>&lt;!DOCTYPE html&gt; &amp; &lt;html&gt;</h2>
+      <p>Every modern HTML file begins with a document-type declaration followed by the <code>&lt;html&gt;</code> root element.</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  ...
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="head">
+      <h2>&lt;head&gt; Elements</h2>
+      <ul>
+        <li><code>&lt;meta charset="UTF-8"&gt;</code> – declares character encoding.</li>
+        <li><code>&lt;meta name="viewport"&gt;</code> – responsive layout control.</li>
+        <li><code>&lt;title&gt;</code> – sets the browser tab title.</li>
+        <li><code>&lt;link rel="stylesheet"&gt;</code> – external CSS.</li>
+        <li><code>&lt;style&gt;</code> – embedded CSS.</li>
+        <li><code>&lt;script&gt;</code> – JavaScript (defer, async, module).</li>
+        <li><code>&lt;base href="/"&gt;</code> – base URL for relative links.</li>
+      </ul>
+    </section>
+
+    <section id="sections">
+      <h2>Sectioning Elements</h2>
+      <ul>
+        <li><code>&lt;body&gt;</code> – document body.</li>
+        <li><code>&lt;header&gt;</code> – introductory content.</li>
+        <li><code>&lt;nav&gt;</code> – navigation links.</li>
+        <li><code>&lt;main&gt;</code> – dominant page content (only one per doc).</li>
+        <li><code>&lt;section&gt;</code> – thematic grouping.</li>
+        <li><code>&lt;article&gt;</code> – self-contained composition.</li>
+        <li><code>&lt;aside&gt;</code> – tangential content (sidebar).</li>
+        <li><code>&lt;footer&gt;</code> – footer info.</li>
+      </ul>
+    </section>
+
+    <section id="text">
+      <h2>Text-Level Semantics</h2>
+      <ul>
+        <li><code>&lt;h1&gt;-&lt;h6&gt;</code> – six heading levels.</li>
+        <li><code>&lt;p&gt;</code> – paragraph.</li>
+        <li><code>&lt;a href&gt;</code> – hyperlink.</li>
+        <li><code>&lt;strong&gt;</code> – strong importance.</li>
+        <li><code>&lt;em&gt;</code> – stress emphasis.</li>
+        <li><code>&lt;mark&gt;</code> – highlighted text.</li>
+        <li><code>&lt;small&gt;</code> – fine print.</li>
+        <li><code>&lt;span&gt;</code> – generic inline container.</li>
+        <li><code>&lt;br&gt;</code> – line break.</li>
+        <li><code>&lt;hr&gt;</code> – thematic break.</li>
+      </ul>
+    </section>
+
+    <section id="lists">
+      <h2>List Elements</h2>
+      <ul>
+        <li><code>&lt;ul&gt;</code> – unordered list.</li>
+        <li><code>&lt;ol&gt;</code> – ordered list (type, start, reversed).</li>
+        <li><code>&lt;li&gt;</code> – list item.</li>
+        <li><code>&lt;dl&gt;</code> – description list.</li>
+        <li><code>&lt;dt&gt;</code> – description term.</li>
+        <li><code>&lt;dd&gt;</code> – description details.</li>
+      </ul>
+    </section>
+
+    <section id="embedded">
+      <h2>Embedded Content</h2>
+      <ul>
+        <li><code>&lt;img src alt&gt;</code> – image.</li>
+        <li><code>&lt;picture&gt;</code> – responsive images with sources.</li>
+        <li><code>&lt;source&gt;</code> – media resource for picture/video/audio.</li>
+        <li><code>&lt;video src controls&gt;</code> – video player.</li>
+        <li><code>&lt;audio src controls&gt;</code> – audio player.</li>
+        <li><code>&lt;track kind="captions"&gt;</code> – subtitles/captions.</li>
+        <li><code>&lt;iframe src&gt;</code> – nested browsing context.</li>
+        <li><code>&lt;embed src&gt;</code> – external integration.</li>
+        <li><code>&lt;object data&gt;</code> – generic external resource.</li>
+      </ul>
+    </section>
+
+    <section id="tables">
+      <h2>Table Elements</h2>
+      <ul>
+        <li><code>&lt;table&gt;</code> – table wrapper.</li>
+        <li><code>&lt;caption&gt;</code> – table title.</li>
+        <li><code>&lt;thead&gt;</code> – header block.</li>
+        <li><code>&lt;tbody&gt;</code> – body block.</li>
+        <li><code>&lt;tfoot&gt;</code> – footer block.</li>
+        <li><code>&lt;tr&gt;</code> – table row.</li>
+        <li><code>&lt;th scope&gt;</code> – header cell.</li>
+        <li><code>&lt;td&gt;</code> – data cell.</li>
+        <li><code>&lt;col&gt;</code> &amp; <code>&lt;colgroup&gt;</code> – column styling.</li>
+      </ul>
+    </section>
+
+    <section id="forms">
+      <h2>Form Elements</h2>
+      <ul>
+        <li><code>&lt;form action method&gt;</code> – form container.</li>
+        <li><code>&lt;label for&gt;</code> – caption for control.</li>
+        <li><code>&lt;input type&gt;</code> – text, email, password, checkbox, radio, range, color, date, file, hidden, submit, …</li>
+        <li><code>&lt;textarea&gt;</code> – multi-line text.</li>
+        <li><code>&lt;select&gt;</code> &amp; <code>&lt;option&gt;</code> – dropdown.</li>
+        <li><code>&lt;optgroup label&gt;</code> – grouped options.</li>
+        <li><code>&lt;button type&gt;</code> – clickable button (submit/reset/button).</li>
+        <li><code>&lt;fieldset&gt;</code> &amp; <code>&lt;legend&gt;</code> – grouped controls.</li>
+        <li><code>&lt;datalist id&gt;</code> – predefined suggestions for input.</li>
+        <li><code>&lt;output for&gt;</code> – calculated result.</li>
+        <li><code>&lt;progress value max&gt;</code> – progress bar.</li>
+        <li><code>&lt;meter value min max&gt;</code> – scalar gauge.</li>
+      </ul>
+    </section>
+
+    <section id="interactive">
+      <h2>Interactive Elements</h2>
+      <ul>
+        <li><code>&lt;details&gt;</code> – disclosure widget.</li>
+        <li><code>&lt;summary&gt;</code> – summary/legend for details.</li>
+        <li><code>&lt;dialog open&gt;</code> – modal or popup box.</li>
+      </ul>
+    </section>
+
+    <section id="scripting">
+      <h2>Scripting &amp; Data</h2>
+      <ul>
+        <li><code>&lt;script type="module"&gt;</code> – JavaScript.</li>
+        <li><code>&lt;noscript&gt;</code> – fallback when JS disabled.</li>
+        <li><code>&lt;template&gt;</code> – inert chunk of DOM for cloning.</li>
+        <li><code>&lt;slot&gt;</code> – shadow DOM placeholder.</li>
+        <li><code>&lt;canvas&gt;</code> – 2D/3D drawing surface.</li>
+        <li><code>&lt;svg&gt;</code> – inline scalable vector graphics.</li>
+        <li><code>&lt;math&gt;</code> – MathML for equations.</li>
+      </ul>
+    </section>
+
+    <section id="obsolete">
+      <h2>Obsolete / Deprecated (Avoid)</h2>
+      <p><code>&lt;font&gt;</code>, <code>&lt;center&gt;</code>, <code>&lt;marquee&gt;</code>, <code>&lt;blink&gt;</code>, <code>&lt;frameset&gt;</code>, <code>&lt;big&gt;</code>, <code>&lt;strike&gt;</code> — use CSS instead.</p>
+    </section>
+  </main>
+
+  
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to CSS - Dark Theme</title>
+    <style>
+        /* Dark theme styling */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #00bcd4;
+        }
+
+        header h1 {
+            color: #58a6ff;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #58a6ff;
+            border-bottom: 2px solid #00bcd4;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #58a6ff;
+            margin-top: 25px;
+        }
+
+        p, ul {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #1e1e1e;
+            color: #58a6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-left: 4px solid #58a6ff;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .highlight {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1e1e1e;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Introduction to CSS</h1>
+    </header>
+
+    <div class="container">
+        <h2>What is CSS?</h2>
+        <p>
+            CSS stands for <span class="highlight">Cascading Style Sheets</span>. It is a style sheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.
+        </p>
+        <p>
+            CSS is one of the core languages of the open web and is standardized across Web browsers according to the W3C specification. Developed in levels, CSS1 is now obsolete, CSS2.1 is a recommendation, and CSS3, now split into smaller modules, is progressing on the standardization track.
+        </p>
+
+        <h2>Why CSS?</h2>
+        <p>
+            CSS brings <span class="highlight">style</span> to your web pages by interacting with HTML elements. Elements are the individual HTML components of a web page—for instance a paragraph— which in HTML might look like this:
+        </p>
+        <pre><code>&lt;p&gt;This is my paragraph!&lt;/p&gt;</code></pre>
+        <p>
+            If you wanted to make this paragraph appear blue and bold to people viewing your web page through a web browser, you’d use CSS code that looks like this:
+        </p>
+        <pre><code>p {
+    color: blue;
+    font-weight: bold;
+}</code></pre>
+        <p>
+            In the above example, the <code>&lt;p&gt;</code> (paragraph) element is being styled. CSS is added to HTML elements in three main ways:
+        </p>
+        <ul>
+            <li><strong>Inline:</strong> By using the <code>style</code> attribute inside HTML elements.</li>
+            <li><strong>Internal:</strong> By using a <code>&lt;style&gt;</code> block in the <code>&lt;head&gt;</code> section.</li>
+            <li><strong>External:</strong> By using an external CSS file linked to the HTML document.</li>
+        </ul>
+
+        <h2>CSS Syntax</h2>
+        <p>
+            A CSS rule consists of a <span class="highlight">selector</span> and a <span class="highlight">declaration block</span>.
+        </p>
+        <pre><code>selector {
+    property: value;
+    /* more property-value pairs */
+}</code></pre>
+        <ul>
+            <li><strong>Selector:</strong> Points to the HTML element you want to style.</li>
+            <li><strong>Declaration Block:</strong> Contains one or more declarations separated by semicolons.</li>
+            <li><strong>Property:</strong> The style attribute you want to change (e.g., <code>color</code>, <code>font-size</code>).</li>
+            <li><strong>Value:</strong> Each property has a value that defines how the property should be styled.</li>
+        </ul>
+
+        <h2>CSS Versions</h2>
+        <ul>
+            <li><strong>CSS1:</strong> Released in 1996, basic styling capabilities.</li>
+            <li><strong>CSS2:</strong> Released in 1998, added positioning, z-index, and media types.</li>
+            <li><strong>CSS2.1:</strong> Refined version of CSS2, became a W3C recommendation.</li>
+            <li><strong>CSS3:</strong> Modular approach, introduced animations, transitions, flexbox, grid, and more.</li>
+        </ul>
+
+        <h2>Advantages of CSS</h2>
+        <ul>
+            <li><strong>Separation of Concerns:</strong> Keeps content (HTML) separate from design (CSS).</li>
+            <li><strong>Reusability:</strong> Styles can be reused across multiple pages using external stylesheets.</li>
+            <li><strong>Maintainability:</strong> Easier to maintain and update styles globally.</li>
+            <li><strong>Page Load Speed:</strong> Reduces HTML file size and improves loading performance.</li>
+            <li><strong>Responsive Design:</strong> Enables creation of responsive layouts for different devices.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            CSS is an essential technology for web development, enabling developers to create visually engaging, responsive, and maintainable websites. Mastering CSS is a fundamental step toward becoming a proficient web developer.
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2025 CSS Introduction 
+    </footer>
+</body>
+</html>

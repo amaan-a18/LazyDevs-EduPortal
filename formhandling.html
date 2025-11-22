@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PHP Form Handling – Dark Theme Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --border: #30363d;
+      --text-primary: #c9d1d9;
+      --text-secondary: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #79c0ff;
+      --error: #f85149;
+      --success: #3fb950;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: var(--accent);
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+    code {
+      background: var(--bg-secondary);
+      padding: 0.2em 0.4em;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: var(--bg-secondary);
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    form {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.25);
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: var(--accent-hover);
+    }
+    .note {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    .error {
+      color: var(--error);
+      font-weight: 600;
+    }
+    .success {
+      color: var(--success);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PHP Form Handling – Detailed Walkthrough</h1>
+  <p>
+    This page demonstrates common PHP form-handling techniques.  
+    Referenced from <a href="https://www.geeksforgeeks.org/php-form-handling/" target="_blank">GeeksforGeeks</a>.
+  </p>
+
+  <h2>1. Simple GET Form</h2>
+  <form action="formhandler.php" method="get">
+    <label for="name_get">Name:</label>
+    <input type="text" id="name_get" name="name" required>
+    <button type="submit">Submit via GET</button>
+    <p class="note">Data appears in the URL query string.</p>
+  </form>
+
+  <h2>2. Secure POST Form</h2>
+  <form action="formhandler.php" method="post">
+    <label for="name_post">Name:</label>
+    <input type="text" id="name_post" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit via POST</button>
+    <p class="note">Data is hidden from the URL; always validate & sanitize server-side.</p>
+  </form>
+
+  <h2>3. File Upload Form</h2>
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <label for="file">Choose file:</label>
+    <input type="file" id="file" name="file" required>
+    <button type="submit">Upload</button>
+    <p class="note">Remember to set proper permissions on the upload directory.</p>
+  </form>
+
+  <h2>4. Server-side Snippet (formhandler.php)</h2>
+  <pre><code>&lt;?php
+// Turn off error reporting for production
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Sanitize inputs
+$name  = htmlspecialchars(trim($_POST['name']  ?? $_GET['name']  ?? ''));
+$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+$gender = htmlspecialchars(trim($_POST['gender'] ?? ''));
+$message = htmlspecialchars(trim($_POST['message'] ?? ''));
+
+// Basic validation
+$errors = [];
+if ($name === '')      $errors[] = 'Name is required.';
+if (!$email)           $errors[] = 'Valid email is required.';
+if ($message === '')   $errors[] = 'Message is required.';
+
+if (!$errors) {
+    echo "&lt;p class='success'&gt;Success!&lt;/p&gt;";
+    echo "&lt;p&gt;Name: $name&lt;/p&gt;";
+    echo "&lt;p&gt;Email: $email&lt;/p&gt;";
+    echo "&lt;p&gt;Gender: $gender&lt;/p&gt;";
+    echo "&lt;p&gt;Message: $message&lt;/p&gt;";
+} else {
+    foreach ($errors as $err) {
+        echo "&lt;p class='error'&gt;$err&lt;/p&gt;";
+    }
+}
+?&gt;</code></pre>
+
+  <h2>5. Security Tips</h2>
+  <ul style="margin-left: 1.2rem; color: var(--text-secondary);">
+    <li>Always use <code>htmlspecialchars()</code> to prevent XSS.</li>
+    <li>Validate email with <code>filter_input()</code> and <code>FILTER_VALIDATE_EMAIL</code>.</li>
+    <li>Never trust client-side validation alone.</li>
+    <li>Use prepared statements for database inserts.</li>
+    <li>Set a maximum upload size and check MIME types for files.</li>
+  </ul>
+
+</body>
+</html>

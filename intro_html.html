@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to HTML – Dark Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A beginner-friendly guide to HTML fundamentals, covering structure, common tags, attributes, nesting, and next learning steps.">
+    <style>
+        :root {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --primary: #58a6ff;
+            --text: #e0e0e0;
+            --muted: #888;
+            --border: #333;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--muted);
+        }
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        code {
+            background: #2a2a2a;
+            color: #f8f8f2;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: "Consolas", monospace;
+        }
+        pre {
+            background: #2a2a2a;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        ul {
+            margin-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Introduction to HTML</h1>
+        <p>Learn the basics of HyperText Markup Language and start building your first web pages step by step</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>What is HTML?</h2>
+            <p>HTML (HyperText Markup Language) is the standard markup language used to create web pages. It describes the structure and content of a webpage using a series of elements and tags. HTML tells the browser how to display text, images, links, and other media, forming the backbone of every site you visit.</p>
+            <p>Unlike programming languages, HTML is declarative: you describe <em>what</em> should appear, not <em>how</em> to compute it. Paired with CSS and JavaScript, HTML becomes the foundation of modern web development.</p>
+        </section>
+
+        <section>
+            <h2>Basic Structure</h2>
+            <p>Every HTML document follows a simple skeleton. Understanding this boilerplate is your first step toward creating valid, accessible pages:</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>The <code>&lt;!DOCTYPE html&gt;</code> declaration informs the browser to use HTML5 standards. The <code>lang</code> attribute on the <code>&lt;html&gt;</code> tag improves accessibility and SEO by specifying the primary language.</p>
+        </section>
+
+        <section>
+            <h2>Common Tags</h2>
+            <p>These elements are the building blocks you will use every day. Memorize them early and practice combining them:</p>
+            <ul>
+                <li><code>&lt;h1&gt; - &lt;h6&gt;</code> – Six levels of headings; <code>&lt;h1&gt;</code> is the most important</li>
+                <li><code>&lt;p&gt;</code> – Paragraph blocks for body text</li>
+                <li><code>&lt;a&gt;</code> – Anchor (hyperlink); use <code>href</code> to set the destination</li>
+                <li><code>&lt;img&gt;</code> – Image; requires <code>src</code> and <code>alt</code> attributes</li>
+                <li><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code> – Unordered lists, ordered lists, and list items</li>
+                <li><code>&lt;div&gt;</code> – Generic block-level container for layout and styling</li>
+                <li><code>&lt;span&gt;</code> – Generic inline container for small text fragments</li>
+            </ul>
+            <p>Always close your tags in the correct order to avoid nesting errors that can break layout or accessibility.</p>
+        </section>
+
+        <section>
+            <h2>Attributes</h2>
+            <p>HTML elements can have attributes that provide extra information. Attributes always come in name/value pairs like <code>class="highlight"</code> or <code>href="https://geeksforgeeks.org"</code>. Attributes such as <code>id</code>, <code>class</code>, <code>title</code>, and <code>data-*</code> are invaluable for CSS styling and JavaScript interaction.</p>
+            <p>Remember to wrap attribute values in double quotes and use lowercase names for consistency and compatibility.</p>
+        </section>
+
+        <section>
+            <h2>Nesting Elements</h2>
+            <p>Elements can contain other elements, forming a tree-like structure called the DOM (Document Object Model). Proper nesting ensures predictable rendering and cleaner code:</p>
+            <pre><code>&lt;div class="card"&gt;
+    &lt;h2&gt;Card Title&lt;/h2&gt;
+    &lt;p&gt;Some content inside the card.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            <p>Think of nesting like Russian dolls: each element should open and close completely inside its parent. Mis-nesting can cause visual bugs and hinder screen-reader navigation.</p>
+        </section>
+
+        <section>
+            <h2>Next Steps</h2>
+            <p>Once comfortable with HTML, move on to CSS for styling and JavaScript for interactivity. Practice by building small projects like personal portfolios, blogs, or tribute pages. Explore semantic tags such as <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;footer&gt;</code> to improve accessibility and SEO. Validate your markup with the W3C Validator and learn about responsive design to make your sites look great on every device.</p>
+        </section>
+    </main>
+
+    <footer>
+        Inspired by GeeksforGeeks | Happy Coding!
+    </footer>
+</body>
+</html>

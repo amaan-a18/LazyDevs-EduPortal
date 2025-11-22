@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to PHP - Dark Theme</title>
+    <style>
+        /* Dark theme styling */
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 25px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .code-block {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            color: #f0f6fc;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+        
+        .feature-box {
+            background-color: #161b22;
+            border-left: 4px solid #58a6ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .intro-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .intro-section p {
+            font-size: 1.2rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro-section">
+            <h1>Introduction to PHP</h1>
+            <p>PHP: Hypertext Preprocessor - The Powerhouse of Web Development</p>
+        </div>
+
+        <h2>What is PHP?</h2>
+        <p>
+            <span class="highlight">PHP</span> stands for <strong>PHP: Hypertext Preprocessor</strong>. It is a widely-used open source scripting language that is especially suited for web development and can be embedded into HTML. PHP is a server-side scripting language that is used to manage dynamic content, databases, session tracking, and even build entire e-commerce sites.
+        </p>
+        
+        <div class="feature-box">
+            <h3>Key Characteristics of PHP:</h3>
+            <ul>
+                <li><strong>Server-side:</strong> PHP scripts are executed on the server</li>
+                <li><strong>Cross-platform:</strong> Runs on various platforms (Windows, Linux, Unix, Mac OS X)</li>
+                <li><strong>Open Source:</strong> Free to download and use</li>
+                <li><strong>Efficient:</strong> PHP is efficient enough to handle large websites</li>
+                <li><strong>Flexible:</strong> PHP can be embedded within HTML or used as a standalone script</li>
+            </ul>
+        </div>
+
+        <h2>Why PHP?</h2>
+        <p>
+            PHP is one of the most popular server-side scripting languages in the world. Here are some compelling reasons to use PHP:
+        </p>
+        
+        <div class="feature-box">
+            <h3>Advantages of PHP:</h3>
+            <ul>
+                <li><strong>Easy to Learn:</strong> PHP has a gentle learning curve, making it ideal for beginners</li>
+                <li><strong>Large Community:</strong> Extensive documentation and community support</li>
+                <li><strong>Database Integration:</strong> Excellent support for databases like MySQL, PostgreSQL, Oracle</li>
+                <li><strong>Frameworks:</strong> Powerful frameworks like Laravel, Symfony, and CodeIgniter</li>
+                <li><strong>Cost-effective:</strong> Open source with no licensing fees</li>
+                <li><strong>Performance:</strong> Fast execution with built-in optimization</li>
+            </ul>
+        </div>
+
+        <h2>Basic PHP Syntax</h2>
+        <p>
+            A PHP script starts with <span class="highlight">&lt;?php</span> and ends with <span class="highlight">?&gt;</span>. PHP files typically have a <span class="highlight">.php</span> extension and can contain text, HTML, CSS, JavaScript, and PHP code.
+        </p>
+        
+        <div class="code-block">
+            <code>
+&lt;?php<br>
+// This is a single-line comment<br>
+# This is also a single-line comment<br>
+/* This is a<br>
+   multi-line comment */<br>
+<br>
+echo "Hello, World!";<br>
+?&gt;
+            </code>
+        </div>
+
+        <h2>PHP Variables</h2>
+        <p>
+            In PHP, variables start with the <span class="highlight">$</span> sign, followed by the name of the variable. PHP is a loosely typed language, so you don't need to declare the data type of a variable.
+        </p>
+        
+        <div class="code-block">
+            <code>
+&lt;?php<br>
+$txt = "Hello world!";<br>
+$x = 5;<br>
+$y = 10.5;<br>
+<br>
+echo $txt;<br>
+echo "&lt;br&gt;";<br>
+echo $x;<br>
+echo "&lt;br&gt;";<br>
+echo $y;<br>
+?&gt;
+            </code>
+        </div>
+
+        <h2>PHP Data Types</h2>
+        <p>
+            PHP supports several data types including:
+        </p>
+        
+        <div class="feature-box">
+            <ul>
+                <li><strong>String:</strong> Sequence of characters</li>
+                <li><strong>Integer:</strong> Whole numbers</li>
+                <li><strong>Float:</strong> Numbers with decimal points</li>
+                <li><strong>Boolean:</strong> true or false</li>
+                <li><strong>Array:</strong> Stores multiple values</li>
+                <li><strong>Object:</strong> Instances of classes</li>
+                <li><strong>NULL:</strong> Variable with no value</li>
+            </ul>
+        </div>
+
+        <h2>PHP in Action</h2>
+        <p>
+            Here's a simple example that demonstrates PHP's ability to generate dynamic content:
+        </p>
+        
+        <div class="code-block">
+            <code>
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;h1&gt;My first PHP page&lt;/h1&gt;<br>
+<br>
+&lt;?php<br>
+echo "Hello World!&lt;br&gt;";<br>
+echo "Today is " . date("Y/m/d") . "&lt;br&gt;";<br>
+echo "The time is " . date("h:i:sa");<br>
+?&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+            </code>
+        </div>
+
+        <h2>PHP and Databases</h2>
+        <p>
+            One of PHP's greatest strengths is its ability to interact with databases. PHP can connect to and manipulate databases, making it perfect for creating dynamic web applications.
+        </p>
+        
+        <div class="code-block">
+            <code>
+&lt;?php<br>
+$servername = "localhost";<br>
+$username = "username";<br>
+$password = "password";<br>
+$dbname = "myDB";<br>
+<br>
+// Create connection<br>
+$conn = new mysqli($servername, $username, $password, $dbname);<br>
+<br>
+// Check connection<br>
+if ($conn-&gt;connect_error) {<br>
+&nbsp;&nbsp;die("Connection failed: " . $conn-&gt;connect_error);<br>
+}<br>
+echo "Connected successfully";<br>
+?&gt;
+            </code>
+        </div>
+
+        <h2>Getting Started with PHP</h2>
+        <p>
+            To start using PHP, you need:
+        </p>
+        
+        <div class="feature-box">
+            <ul>
+                <li>A web server (like Apache or Nginx)</li>
+                <li>PHP installed on your server</li>
+                <li>A database (like MySQL) if you plan to store data</li>
+                <li>A text editor for writing PHP code</li>
+            </ul>
+        </div>
+        
+        <p>
+            Alternatively, you can use pre-built packages like <span class="highlight">XAMPP</span>, <span class="highlight">WAMP</span>, or <span class="highlight">MAMP</span> that include PHP, Apache, and MySQL in one installation.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+            PHP remains one of the most versatile and widely-used server-side scripting languages. Its simplicity, flexibility, and powerful features make it an excellent choice for both beginners and experienced developers. Whether you're building a small personal website or a large-scale web application, PHP provides the tools and functionality you need to create dynamic, interactive web experiences.
+        </p>
+        
+        <div class="feature-box">
+            <p style="text-align: center; font-size: 1.1rem;">
+                Start your PHP journey today and unlock the potential of server-side web development!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

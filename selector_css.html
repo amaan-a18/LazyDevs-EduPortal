@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors - Dark Theme Guide</title>
+    <style>
+        /* Dark Theme Styling */
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #58a6ff;
+        }
+
+        pre {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #c9d1d9;
+        }
+
+        .selector-section {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .selector-example {
+            background-color: #0d1117;
+            border-left: 4px solid #58a6ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Selectors - Complete Guide</h1>
+
+        <div class="selector-section">
+            <h2>What are CSS Selectors?</h2>
+            <p>CSS selectors are used to select the HTML elements you want to style. They are patterns used to select the elements you want to style. Selectors can be divided into the following categories:</p>
+            <ul>
+                <li><span class="highlight">Simple selectors</span> - Select elements based on name, id, class</li>
+                <li><span class="highlight">Combinator selectors</span> - Select elements based on a specific relationship between them</li>
+                <li><span class="highlight">Pseudo-class selectors</span> - Select elements based on a certain state</li>
+                <li><span class="highlight">Pseudo-elements selectors</span> - Select and style a part of an element</li>
+                <li><span class="highlight">Attribute selectors</span> - Select elements based on an attribute or attribute value</li>
+            </ul>
+        </div>
+
+        <div class="selector-section">
+            <h2>1. Simple Selectors</h2>
+            
+            <h3>Element Selector</h3>
+            <p>The element selector selects HTML elements based on the element name.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>p {
+  text-align: center;
+  color: red;
+}</code></pre>
+                <p>Selects all <code>&lt;p&gt;</code> elements and styles them with red, centered text.</p>
+            </div>
+
+            <h3>ID Selector</h3>
+            <p>The id selector uses the id attribute of an HTML element to select a specific element.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>#para1 {
+  text-align: center;
+  color: red;
+}</code></pre>
+                <p>Selects the element with <code>id="para1"</code> and styles it with red, centered text.</p>
+            </div>
+
+            <h3>Class Selector</h3>
+            <p>The class selector selects HTML elements with a specific class attribute.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>.center {
+  text-align: center;
+  color: red;
+}</code></pre>
+                <p>Selects all elements with <code>class="center"</code> and styles them with red, centered text.</p>
+            </div>
+
+            <h3>Universal Selector</h3>
+            <p>The universal selector (*) selects all HTML elements on the page.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>* {
+  margin: 0;
+  padding: 0;
+}</code></pre>
+                <p>Removes all default margins and padding from all elements.</p>
+            </div>
+
+            <h3>Grouping Selector</h3>
+            <p>The grouping selector selects all the HTML elements with the same style definitions.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>h1, h2, p {
+  text-align: center;
+  color: red;
+}</code></pre>
+                <p>Selects all <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;p&gt;</code> elements and styles them with red, centered text.</p>
+            </div>
+        </div>
+
+        <div class="selector-section">
+            <h2>2. Combinator Selectors</h2>
+            
+            <h3>Descendant Selector (space)</h3>
+            <p>The descendant selector matches all elements that are descendants of a specified element.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>div p {
+  background-color: yellow;
+}</code></pre>
+                <p>Selects all <code>&lt;p&gt;</code> elements inside <code>&lt;div&gt;</code> elements.</p>
+            </div>
+
+            <h3>Child Selector (>)</h3>
+            <p>The child selector selects all elements that are the immediate children of a specified element.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>div > p {
+  background-color: yellow;
+}</code></pre>
+                <p>Selects all <code>&lt;p&gt;</code> elements that are immediate children of a <code>&lt;div&gt;</code> element.</p>
+            </div>
+
+            <h3>Adjacent Sibling Selector (+)</h3>
+            <p>The adjacent sibling selector selects an element that is directly after another specific element.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>div + p {
+  background-color: yellow;
+}</code></pre>
+                <p>Selects the first <code>&lt;p&gt;</code> element that is placed immediately after <code>&lt;div&gt;</code> elements.</p>
+            </div>
+
+            <h3>General Sibling Selector (~)</h3>
+            <p>The general sibling selector selects all elements that are siblings of a specified element.</p>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>div ~ p {
+  background-color: yellow;
+}</code></pre>
+                <p>Selects every <code>&lt;p&gt;</code> element that are preceded by a <code>&lt;div&gt;</code> element.</p>
+            </div>
+        </div>
+
+        <div class="selector-section">
+            <h2>3. Pseudo-class Selectors</h2>
+            <p>A pseudo-class is used to define a special state of an element.</p>
+            
+            <h3>Common Pseudo-classes</h3>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>/* unvisited link */
+a:link {
+  color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+  color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+  color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+  color: #0000FF;
+}</code></pre>
+                <p>Styles links in different states.</p>
+            </div>
+
+            <h3>Structural Pseudo-classes</h3>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>/* First child */
+p:first-child {
+  color: blue;
+}
+
+/* Last child */
+p:last-child {
+  color: red;
+}
+
+/* nth child */
+p:nth-child(2) {
+  color: green;
+}</code></pre>
+                <p>Styles elements based on their position in the document tree.</p>
+            </div>
+        </div>
+
+        <div class="selector-section">
+            <h2>4. Pseudo-elements Selectors</h2>
+            <p>A CSS pseudo-element is used to style specified parts of an element.</p>
+            
+            <h3>Common Pseudo-elements</h3>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>/* First line */
+p::first-line {
+  color: #ff0000;
+  font-variant: small-caps;
+}
+
+/* First letter */
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+
+/* Before content */
+h1::before {
+  content: url(smiley.gif);
+}
+
+/* After content */
+h1::after {
+  content: url(smiley.gif);
+}</code></pre>
+                <p>Styles specific parts of elements.</p>
+            </div>
+        </div>
+
+        <div class="selector-section">
+            <h2>5. Attribute Selectors</h2>
+            <p>The attribute selector is used to select elements with a specified attribute.</p>
+            
+            <h3>Attribute Selectors Examples</h3>
+            <div class="selector-example">
+                <p><strong>Example:</strong></p>
+                <pre><code>/* Selects elements with target="_blank" */
+a[target] {
+  background-color: yellow;
+}
+
+/* Selects elements with target="_blank" */
+a[target="_blank"] {
+  background-color: yellow;
+}
+
+/* Selects elements with title containing "flower" */
+[title~="flower"] {
+  border: 5px solid yellow;
+}
+
+/* Selects elements with lang starting with "en" */
+[lang|="en"] {
+  background: yellow;
+}
+
+/* Selects links starting with "https" */
+a[href^="https"] {
+  background-color: yellow;
+}
+
+/* Selects links ending with ".pdf" */
+a[href$=".pdf"] {
+  background-color: yellow;
+}
+
+/* Selects links containing "w3schools" */
+a[href*="w3schools"] {
+  background-color: yellow;
+}</code></pre>
+                <p>Selects elements based on their attributes and attribute values.</p>
+            </div>
+        </div>
+
+        <div class="selector-section">
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use <span class="highlight">specific selectors</span> to target elements precisely</li>
+                <li>Avoid using <span class="highlight">!important</span> unless absolutely necessary</li>
+                <li>Use <span class="highlight">class selectors</span> for styling and <span class="highlight">ID selectors</span> for JavaScript hooks</li>
+                <li>Keep your selectors <span class="highlight">as simple as possible</span> while maintaining specificity</li>
+                <li>Use <span class="highlight">pseudo-classes</span> for interactive states</li>
+                <li>Group similar styles to reduce code duplication</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

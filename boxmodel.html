@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Box Model - Dark Theme</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --border: #30363d;
+      --code-bg: #010409;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    code {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: "Fira Code", monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    .box-demo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 220px;
+      background: var(--bg);
+      border: 2px dashed var(--accent);
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .box {
+      width: 180px;
+      height: 100px;
+      background: var(--accent);
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      border: 10px solid #388bfd;
+      padding: 20px;
+      margin: 15px;
+    }
+    .label {
+      position: absolute;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+    .label.margin {
+      top: 5px;
+      left: 5px;
+    }
+    .label.border {
+      top: 25px;
+      left: 25px;
+    }
+    .label.padding {
+      top: 45px;
+      left: 45px;
+    }
+    .label.content {
+      top: 85px;
+      left: 85px;
+    }
+    ul {
+      margin-left: 1.2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS Box Model</h1>
+    <p>
+      The CSS box model is the foundation of layout design on the web. Every element is considered a rectangular box made up of four areas: <strong>content</strong>, <strong>padding</strong>, <strong>border</strong>, and <strong>margin</strong>.
+    </p>
+
+    <div class="card">
+      <h2>Visual Representation</h2>
+      <div class="box-demo">
+        <span class="label margin">Margin</span>
+        <span class="label border">Border</span>
+        <span class="label padding">Padding</span>
+        <span class="label content">Content</span>
+        <div class="box">Content</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>1. Content</h2>
+      <p>The innermost part where text, images, or other media appear. Its dimensions are controlled by <code>width</code> and <code>height</code>.</p>
+      <pre><code>.box {
+  width: 200px;
+  height: 100px;
+}</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>2. Padding</h2>
+      <p>Space between the content and the border. It inherits the element's background color.</p>
+      <pre><code>.box {
+  padding: 20px; /* all sides */
+  padding-top: 10px;
+}</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>3. Border</h2>
+      <p>Wraps the padding and content. Its thickness, style, and color can be customized.</p>
+      <pre><code>.box {
+  border: 5px solid #58a6ff;
+}</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>4. Margin</h2>
+      <p>Space outside the border, separating the element from others. Margins are transparent.</p>
+      <pre><code>.box {
+  margin: 15px; /* all sides */
+  margin-left: auto;
+  margin-right: auto; /* centering trick */
+}</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Box-Sizing: border-box</h2>
+      <p>By default, <code>width</code> and <code>height</code> apply only to content. Use <code>box-sizing: border-box</code> to include padding and border in the specified dimensions.</p>
+      <pre><code>* {
+  box-sizing: border-box;
+}</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Quick Tips</h2>
+      <ul>
+        <li>Collapsing margins: adjacent vertical margins merge into the larger value.</li>
+        <li>Use <code>outline</code> for debugging without affecting layout.</li>
+        <li>Prefer <code>border-box</code> for predictable sizing.</li>
+        <li>Reference: <a href="https://www.geeksforgeeks.org/css-box-model/" target="_blank">GeeksforGeeks CSS Box Model</a></li>
+      </ul>
+    </div>
+
+    
+  </div>
+</body>
+</html>

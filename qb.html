@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question Papers</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .frame-left, .frame-right {
+      height: 100%;
+      border: none;
+    }
+    .frame-left {
+      width: 20%;
+      background: #1e1e1e;
+      overflow-y: auto;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    .frame-right {
+      width: 80%;
+      background: #181818;
+    }
+    .paper-item {
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      background: #242424;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .paper-item:hover {
+      background: #58a6ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame-left">
+    <h2 style="margin-top:0">Question Banks</h2>
+    <div class="paper-item" onclick="openPdf('mod1.pdf')">Module 1</div>
+    <div class="paper-item" onclick="openPdf('mod2.pdf')">Module 2</div>
+    <div class="paper-item" onclick="openPdf('ca2.pdf')">CA 2 QB</div>
+  </div>
+  <iframe id="pdfViewer" class="frame-right" src=""></iframe>
+
+  <script>
+    function openPdf(filename) {
+      document.getElementById('pdfViewer').src = filename;
+    }
+  </script>
+</body>
+</html>

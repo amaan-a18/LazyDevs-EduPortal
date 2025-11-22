@@ -1,0 +1,235 @@
+/* Global Styles */
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #58a6ff;
+    --secondary-color: #03dac6;
+    --accent-color: #cf6679;
+    --surface-color: #1e1e1e;
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+code {
+    display: block;
+    background-color: #2d2d2d;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+/* Active States */
+.section-title.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.topic-link.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: rgba(187, 134, 252, 0.1);
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--surface-color);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    margin-left: 20px;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.nav-links a:hover {
+    color: black;
+}
+.intro-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff11;
+  border-radius:10px
+}
+.intro-content h1 {
+  font-size: 2.5rem;
+  margin-bottom:20px;
+  
+}
+.intro-desc {
+  padding: 30px;
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+     /* Account for navbar and footer */
+}
+th,td{
+   padding-left: 30px;
+  padding-right: 40px;
+}
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--surface-color);
+    padding: 20px;
+    overflow-y: auto;
+    position: sticky;
+    top: 60px; /* Below navbar */
+    height: calc(100vh - 100px);
+}
+
+.sidebar-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-section ul {
+    list-style-type: none;
+}
+
+.sidebar-section li {
+    margin-bottom: 8px;
+}
+
+.sidebar-section a {
+    color: var(--text-color);
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-section a:hover {
+    background-color: rgba(187, 134, 252, 0.1);
+    text-decoration: none;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+article {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+article h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+article p {
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--surface-color);
+    text-align: center;
+    padding: 15px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    .content {
+        padding: 15px;
+    }
+}

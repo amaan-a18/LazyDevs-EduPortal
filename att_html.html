@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Attributes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --primary: #58a6ff;
+      --secondary: #58a6ff;
+      --text: #e0e0e0;
+      --muted: #888;
+      --border: #333;
+      --radius: 6px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    header p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      display: flex;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius) 0 0 var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .search-box button {
+      padding: 0 1.5rem;
+      border: 1px solid var(--border);
+      border-left: none;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--primary);
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .search-box button:hover {
+      background: #d1aaff;
+    }
+    .attr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .attr-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .attr-card h2 {
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .attr-card .tag {
+      font-family: "Fira Code", monospace;
+      background: var(--primary);
+      color: #000;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .attr-card p {
+      flex: 1;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .attr-card .example {
+      margin-top: 1rem;
+      background: #0d0d0d;
+      border-left: 3px solid var(--secondary);
+      padding: 0.75rem 1rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: "Fira Code", monospace;
+      font-size: 0.9rem;
+      color: var(--text);
+      overflow-x: auto;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .attr-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>HTML Attributes</h1>
+    
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search attributes (e.g., href, alt, disabled)…">
+    <button onclick="filterAttrs()">Search</button>
+  </div>
+
+  <main class="attr-grid" id="attrGrid">
+    <!-- Global Attributes -->
+    <section class="attr-card">
+      <h2>accesskey</h2>
+      <span class="tag">Global</span>
+      <p>Provides a keyboard shortcut to focus an element. Combine with Alt on Windows or Control+Alt on Mac.</p>
+      <div class="example">&lt;button accesskey="s"&gt;Save&lt;/button&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>class</h2>
+      <span class="tag">Global</span>
+      <p>Assigns one or more CSS classes to an element for styling or JavaScript selection.</p>
+      <div class="example">&lt;div class="card highlight"&gt;…&lt;/div&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>contenteditable</h2>
+      <span class="tag">Global</span>
+      <p>Makes element content editable by users. Values: <code>true</code> | <code>false</code>.</p>
+      <div class="example">&lt;p contenteditable="true"&gt;Edit me!&lt;/p&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>data-*</h2>
+      <span class="tag">Global</span>
+      <p>Stores custom private data for scripting. Replace <code>*</code> with any valid name.</p>
+      <div class="example">&lt;li data-id="42" data-user="ada"&gt;…&lt;/li&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>dir</h2>
+      <span class="tag">Global</span>
+      <p>Sets text direction: <code>ltr</code>, <code>rtl</code>, or <code>auto</code>.</p>
+      <div class="example">&lt;span dir="rtl"&gt;مرحبا&lt;/span&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>draggable</h2>
+      <span class="tag">Global</span>
+      <p>Specifies whether element can be dragged. Values: <code>true</code> | <code>false</code>.</p>
+      <div class="example">&lt;img draggable="false" src="logo.svg" alt="Logo"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>hidden</h2>
+      <span class="tag">Global</span>
+      <p>Hides element from all presentations. Boolean attribute.</p>
+      <div class="example">&lt;div hidden&gt;Loading…&lt;/div&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>id</h2>
+      <span class="tag">Global</span>
+      <p>Unique identifier for element. Must be unique in entire document.</p>
+      <div class="example">&lt;section id="pricing"&gt;…&lt;/section&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>lang</h2>
+      <span class="tag">Global</span>
+      <p>Declares language of element content using BCP 47 codes.</p>
+      <div class="example">&lt;html lang="en-US"&gt;…&lt;/html&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>spellcheck</h2>
+      <span class="tag">Global</span>
+      <p>Hints browser whether to check spelling. Values: <code>true</code> | <code>false</code>.</p>
+      <div class="example">&lt;textarea spellcheck="true"&gt;&lt;/textarea&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>style</h2>
+      <span class="tag">Global</span>
+      <p>Inline CSS declarations for element.</p>
+      <div class="example">&lt;div style="color:lime; margin:1rem"&gt;…&lt;/div&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>tabindex</h2>
+      <span class="tag">Global</span>
+      <p>Controls tab order. 0 = in order, &gt;0 = before, −1 = unreachable.</p>
+      <div class="example">&lt;button tabindex="0"&gt;Focusable&lt;/button&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>title</h2>
+      <span class="tag">Global</span>
+      <p>Advisory information shown as tooltip on hover.</p>
+      <div class="example">&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</div>
+    </section>
+
+    <!-- Form & Input -->
+    <section class="attr-card">
+      <h2>accept</h2>
+      <span class="tag">&lt;input type="file"&gt;</span>
+      <p>Comma-separated list of allowed file types or MIME patterns.</p>
+      <div class="example">&lt;input type="file" accept="image/png,image/jpeg"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>alt</h2>
+      <span class="tag">&lt;img&gt;, &lt;area&gt;, &lt;input type="image"&gt;</span>
+      <p>Alternative text for images when unavailable.</p>
+      <div class="example">&lt;img src="cat.jpg" alt="Sleeping cat"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>autocomplete</h2>
+      <span class="tag">&lt;form&gt;, &lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;</span>
+      <p>Controls browser autofill. Values: <code>on</code> | <code>off</code> or detailed tokens.</p>
+      <div class="example">&lt;input name="email" autocomplete="email"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>autofocus</h2>
+      <span class="tag">Form controls</span>
+      <p>Focuses element automatically on page load. Boolean.</p>
+      <div class="example">&lt;input autofocus&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>checked</h2>
+      <span class="tag">&lt;input type="checkbox|radio"&gt;</span>
+      <p>Pre-selects input. Boolean.</p>
+      <div class="example">&lt;input type="checkbox" checked&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>disabled</h2>
+      <span class="tag">Form controls, &lt;fieldset&gt;, &lt;optgroup&gt;, &lt;option&gt;</span>
+      <p>Disables interaction. Boolean.</p>
+      <div class="example">&lt;button disabled&gt;Submit&lt;/button&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>for</h2>
+      <span class="tag">&lt;label&gt;, &lt;output&gt;</span>
+      <p>Associates label with form control whose <code>id</code> equals this value.</p>
+      <div class="example">&lt;label for="email"&gt;Email&lt;/label&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>form</h2>
+      <span class="tag">Form controls</span>
+      <p>Overrides parent form; value is <code>id</code> of form to submit with.</p>
+      <div class="example">&lt;input form="signup" name="extra"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>max / min</h2>
+      <span class="tag">Range inputs, &lt;meter&gt;, &lt;progress&gt;</span>
+      <p>Upper/lower bounds for numeric or date inputs.</p>
+      <div class="example">&lt;input type="date" min="2025-01-01" max="2025-12-31"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>maxlength</h2>
+      <span class="tag">&lt;input&gt;, &lt;textarea&gt;</span>
+      <p>Maximum number of characters user may enter.</p>
+      <div class="example">&lt;input maxlength="10"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>multiple</h2>
+      <span class="tag">&lt;input&gt;, &lt;select&gt;</span>
+      <p>Allows multiple values. Boolean.</p>
+      <div class="example">&lt;input type="file" multiple&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>name</h2>
+      <span class="tag">Form controls</span>
+      <p>Key under which control value is submitted.</p>
+      <div class="example">&lt;input name="username"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>pattern</h2>
+      <span class="tag">&lt;input&gt;</span>
+      <p>Regular expression value must match for validity.</p>
+      <div class="example">&lt;input pattern="\d{4}" title="4 digits"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>placeholder</h2>
+      <span class="tag">&lt;input&gt;, &lt;textarea&gt;</span>
+      <p>Short hint displayed when field is empty.</p>
+      <div class="example">&lt;input placeholder="Search…"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>readonly</h2>
+      <span class="tag">&lt;input&gt;, &lt;textarea&gt;</span>
+      <p>Makes control non-editable but still focusable and submitted.</p>
+      <div class="example">&lt;input readonly value="Read"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>required</h2>
+      <span class="tag">Form controls</span>
+      <p>Element must be filled before form submission. Boolean.</p>
+      <div class="example">&lt;input required&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>step</h2>
+      <span class="tag">Numeric/date inputs</span>
+      <p>Granularity of value increments (e.g., 1, 0.1, 60).</p>
+      <div class="example">&lt;input type="number" step="0.01"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>type</h2>
+      <span class="tag">&lt;input&gt;, &lt;button&gt;</span>
+      <p>Determines control behavior or input subtype.</p>
+      <div class="example">&lt;input type="range"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>value</h2>
+      <span class="tag">Form controls, &lt;li&gt;, &lt;meter&gt;, &lt;progress&gt;</span>
+      <p>Current data or initial value.</p>
+      <div class="example">&lt;input value="default"&gt;</div>
+    </section>
+
+    <!-- Media -->
+    <section class="attr-card">
+      <h2>src</h2>
+      <span class="tag">&lt;img&gt;, &lt;video&gt;, &lt;audio&gt;, &lt;script&gt;, &lt;iframe&gt;, &lt;source&gt;</span>
+      <p>URL of resource to embed.</p>
+      <div class="example">&lt;img src="hero.jpg" alt="Hero"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>width / height</h2>
+      <span class="tag">Media elements</span>
+      <p>Dimensions in CSS pixels (no units).</p>
+      <div class="example">&lt;canvas width="800" height="400"&gt;&lt;/canvas&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>controls</h2>
+      <span class="tag">&lt;video&gt;, &lt;audio&gt;</span>
+      <p>Shows playback controls. Boolean.</p>
+      <div class="example">&lt;video src="vid.mp4" controls&gt;&lt;/video&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>loop</h2>
+      <span class="tag">&lt;video&gt;, &lt;audio&gt;</span>
+      <p>Restarts media when finished. Boolean.</p>
+      <div class="example">&lt;audio loop&gt;&lt;/audio&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>muted</h2>
+      <span class="tag">&lt;video&gt;, &lt;audio&gt;</span>
+      <p>Silences audio output. Boolean.</p>
+      <div class="example">&lt;video muted&gt;&lt;/video&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>preload</h2>
+      <span class="tag">&lt;video&gt;, &lt;audio&gt;</span>
+      <p>Hints how much to buffer: <code>none</code>, <code>metadata</code>, <code>auto</code>.</p>
+      <div class="example">&lt;audio preload="metadata"&gt;&lt;/audio&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>poster</h2>
+      <span class="tag">&lt;video&gt;</span>
+      <p>Image shown until video plays.</p>
+      <div class="example">&lt;video poster="thumb.jpg"&gt;&lt;/video&gt;</div>
+    </section>
+
+    <!-- Links & Navigation -->
+    <section class="attr-card">
+      <h2>href</h2>
+      <span class="tag">&lt;a&gt;, &lt;area&gt;, &lt;link&gt;, &lt;base&gt;</span>
+      <p>Target URL or resource path.</p>
+      <div class="example">&lt;a href="/about"&gt;About&lt;/a&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>target</h2>
+      <span class="tag">&lt;a&gt;, &lt;area&gt;, &lt;form&gt;</span>
+      <p>Where to open link: <code>_self</code>, <code>_blank</code>, <code>_parent</code>, <code>_top</code>, or frame name.</p>
+      <div class="example">&lt;a href="new" target="_blank"&gt;Open new tab&lt;/a&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>download</h2>
+      <span class="tag">&lt;a&gt;, &lt;area&gt;</span>
+      <p>Prompts user to download resource instead of navigating.</p>
+      <div class="example">&lt;a href="file.pdf" download&gt;Save PDF&lt;/a&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>rel</h2>
+      <span class="tag">&lt;a&gt;, &lt;area&gt;, &lt;link&gt;, &lt;form&gt;</span>
+      <p>Relationship of target to current doc (e.g., <code>nofollow</code>, <code>external</code>, <code>help</code>).</p>
+      <div class="example">&lt;link rel="stylesheet" href="main.css"&gt;</div>
+    </section>
+
+    <!-- Tables -->
+    <section class="attr-card">
+      <h2>colspan / rowspan</h2>
+      <span class="tag">&lt;td&gt;, &lt;th&gt;</span>
+      <p>Number of columns/rows cell spans.</p>
+      <div class="example">&lt;td colspan="2"&gt;Merged&lt;/td&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>scope</h2>
+      <span class="tag">&lt;th&gt;</span>
+      <p>Defines cells header relates to: <code>row</code>, <code>col</code>, <code>rowgroup</code>, <code>colgroup</code>.</p>
+      <div class="example">&lt;th scope="row"&gt;Total&lt;/th&gt;</div>
+    </section>
+
+    <!-- Meta & Misc -->
+    <section class="attr-card">
+      <h2>charset</h2>
+      <span class="tag">&lt;meta&gt;</span>
+      <p>Character encoding declaration.</p>
+      <div class="example">&lt;meta charset="UTF-8"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>name</h2>
+      <span class="tag">&lt;meta&gt;, &lt;param&gt;</span>
+      <p>Metadata key when used with <code>content</code>.</p>
+      <div class="example">&lt;meta name="viewport" content="width=device-width"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>content</h2>
+      <span class="tag">&lt;meta&gt;</span>
+      <p>Value associated with <code>name</code> or <code>http-equiv</code>.</p>
+      <div class="example">&lt;meta name="author" content="Ada"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>http-equiv</h2>
+      <span class="tag">&lt;meta&gt;</span>
+      <p>Pragma directive simulating HTTP header.</p>
+      <div class="example">&lt;meta http-equiv="refresh" content="5"&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>defer</h2>
+      <span class="tag">&lt;script&gt;</span>
+      <p>Delays script execution until HTML parsing complete. Boolean.</p>
+      <div class="example">&lt;script src="app.js" defer&gt;&lt;/script&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>async</h2>
+      <span class="tag">&lt;script&gt;</span>
+      <p>Downloads script asynchronously and executes ASAP. Boolean.</p>
+      <div class="example">&lt;script async src="analytics.js"&gt;&lt;/script&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>open</h2>
+      <span class="tag">&lt;details&gt;</span>
+      <p>Expands disclosure by default. Boolean.</p>
+      <div class="example">&lt;details open&gt;&lt;summary&gt;More&lt;/summary&gt;…&lt;/details&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>start</h2>
+      <span class="tag">&lt;ol&gt;</span>
+      <p>Initial number for list items.</p>
+      <div class="example">&lt;ol start="10"&gt;…&lt;/ol&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>reversed</h2>
+      <span class="tag">&lt;ol&gt;</span>
+      <p>Reverses numbering direction. Boolean.</p>
+      <div class="example">&lt;ol reversed&gt;…&lt;/ol&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>selected</h2>
+      <span class="tag">&lt;option&gt;</span>
+      <p>Pre-selects option. Boolean.</p>
+      <div class="example">&lt;option selected&gt;Default&lt;/option&gt;</div>
+    </section>
+
+    <section class="attr-card">
+      <h2>wrap</h2>
+      <span class="tag">&lt;textarea&gt;</span>
+      <p>How text wraps on submission: <code>soft</code> (default) or <code>hard</code>.</p>
+      <div class="example">&lt;textarea wrap="hard"&gt;&lt;/textarea&gt;</div>
+    </section>
+  </main>
+
+  <footer>
+    HTML Attributes Reference &copy; <span id="year"></span> — open source
+  </footer>
+
+  <script>
+    function filterAttrs() {
+      const term = document.getElementById('search').value.toLowerCase();
+      const cards = document.querySelectorAll('.attr-card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(term) ? 'flex' : 'none';
+      });
+    }
+    document.getElementById('search').addEventListener('keyup', filterAttrs);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

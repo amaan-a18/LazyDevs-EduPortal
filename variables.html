@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PHP Variables – Dark Theme Reference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --accent: #58a6ff;
+            --code-bg: #010409;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+        code {
+            font-family: "Consolas", "Courier New", monospace;
+            color: var(--accent);
+        }
+        ul {
+            margin-left: 1.25rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .note {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PHP Variables – Complete Guide</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. What is a Variable?</h2>
+            <p>A variable in PHP is a name given to a memory location that holds data. Variables start with a dollar sign <code>$</code> followed by the name.</p>
+            <pre><code>&lt;?php
+$name = "Alice";
+$age  = 25;
+echo $name; // Outputs: Alice
+?&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>2. Rules for PHP Variables</h2>
+            <ul>
+                <li>Start with <code>$</code> symbol.</li>
+                <li>Cannot begin with a number.</li>
+                <li>Only contain alphanumeric characters and underscores <code>A-z, 0-9, _</code>.</li>
+                <li>Case-sensitive (<code>$name</code> ≠ <code>$Name</code>).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Variable Scope</h2>
+            <h3>Local Scope</h3>
+            <pre><code>&lt;?php
+function test() {
+    $x = 5; // local
+    echo $x;
+}
+test(); // 5
+?&gt;</code></pre>
+
+            <h3>Global Scope</h3>
+            <pre><code>&lt;?php
+$x = 10; // global
+function test() {
+    global $x;
+    echo $x;
+}
+test(); // 10
+?&gt;</code></pre>
+
+            <h3>Static Variables</h3>
+            <pre><code>&lt;?php
+function counter() {
+    static $c = 0;
+    $c++;
+    echo $c;
+}
+counter(); // 1
+counter(); // 2
+?&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Variable Variables</h2>
+            <p>A variable whose name is stored in another variable.</p>
+            <pre><code>&lt;?php
+$a = "hello";
+$$a = "world";
+echo $hello; // Outputs: world
+?&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Superglobals</h2>
+            <p>Built-in arrays accessible everywhere:</p>
+            <ul>
+                <li><code>$_GET</code></li>
+                <li><code>$_POST</code></li>
+                <li><code>$_REQUEST</code></li>
+                <li><code>$_SERVER</code></li>
+                <li><code>$_SESSION</code></li>
+                <li><code>$_COOKIE</code></li>
+                <li><code>$_FILES</code></li>
+                <li><code>$_ENV</code></li>
+            </ul>
+            <pre><code>&lt;?php
+echo $_SERVER["PHP_SELF"]; // current script path
+?&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Data Types &amp; Type Juggling</h2>
+            <pre><code>&lt;?php
+$int   = 10;
+$float = 10.5;
+$str   = "100";
+$sum   = $int + $str; // $sum is 110 (int)
+var_dump($sum);
+?&gt;</code></pre>
+            <div class="note">PHP automatically converts types based on context.</div>
+        </section>
+
+        <section>
+            <h2>7. Constants vs Variables</h2>
+            <pre><code>&lt;?php
+define("SITE_NAME", "MySite");
+echo SITE_NAME; // MySite
+
+// Unlike variables, constants are global and case-sensitive by default.
+?&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>8. Best Practices</h2>
+            <ul>
+                <li>Use meaningful names: <code>$userCount</code> instead of <code>$n</code>.</li>
+                <li>Stick to lowercase with camelCase or underscores.</li>
+                <li>Initialize variables before use to avoid notices.</li>
+                <li>Avoid global variables; prefer passing parameters or using dependency injection.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

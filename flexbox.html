@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Guide </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            border-bottom: 2px solid #21262d;
+        }
+
+        h1 {
+            color: #58a6ff;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+        }
+
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.2em;
+        }
+
+        .section {
+            background-color: #161b22;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #58a6ff;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #79c0ff;
+            margin: 25px 0 15px 0;
+            font-size: 1.5em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #c9d1d9;
+            font-size: 1.1em;
+        }
+
+        code {
+            background-color: #161b22;
+            color: #79c0ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            border: 1px solid #30363d;
+        }
+
+        pre {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: #c9d1d9;
+            padding: 0;
+            border: none;
+            display: block;
+            line-height: 1.5;
+        }
+
+        .property-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .property-card {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(88, 166, 255, 0.2);
+            border-color: #58a6ff;
+        }
+
+        .property-name {
+            color: #58a6ff;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background-color: #0d1117;
+            border: 2px dashed #58a6ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        .flex-demo {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+
+        .flex-item {
+            background-color: #58a6ff;
+            color: #0d1117;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .flex-item:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: rgba(88, 166, 255, 0.1);
+            border-left: 4px solid #58a6ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .note::before {
+            content: "💡 ";
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #21262d;
+            color: #8b949e;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .property-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Flexbox Complete Guide</h1>
+            <p class="subtitle">Master the Flexible Box Layout Module </p>
+        </header>
+
+        <section class="section">
+            <h2>What is Flexbox?</h2>
+            <p>
+                The <span class="highlight">Flexible Box Module</span>, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities.
+            </p>
+            <p>
+                When we describe flexbox as being one dimensional, we are describing the fact that flexbox deals with layout in one dimension at a time — either as a row or as a column. This can be contrasted with the two-dimensional model of <span class="highlight">CSS Grid Layout</span>, which controls columns and rows together.
+            </p>
+            <div class="note">
+                The main idea behind the flex layout is to give the container the ability to alter its items' width/height (and order) to best fill the available space.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Flexbox Basics</h2>
+            <p>
+                Flexbox consists of <span class="highlight">flex containers</span> and <span class="highlight">flex items</span>. A flex container is defined using <code>display: flex</code> or <code>display: inline-flex</code>.
+            </p>
+            
+            <h3>Creating a Flex Container</h3>
+            <pre><code>.container {
+    display: flex; /* or inline-flex */
+}</code></pre>
+
+            <h3>Flex Direction</h3>
+            <p>The <code>flex-direction</code> property establishes the main axis:</p>
+            <pre><code>.container {
+    flex-direction: row | row-reverse | column | column-reverse;
+}</code></pre>
+
+            <div class="example-box">
+                Try hovering over the flex items below to see them scale!
+            </div>
+
+            <div class="flex-demo">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Flex Container Properties</h2>
+            <div class="property-list">
+                <div class="property-card">
+                    <div class="property-name">display</div>
+                    <p>Defines a flex container</p>
+                    <code>display: flex</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">flex-direction</div>
+                    <p>Establishes the main axis</p>
+                    <code>flex-direction: row</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">flex-wrap</div>
+                    <p>Allows items to wrap</p>
+                    <code>flex-wrap: nowrap</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">justify-content</div>
+                    <p>Aligns items on the main axis</p>
+                    <code>justify-content: flex-start</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">align-items</div>
+                    <p>Aligns items on the cross axis</p>
+                    <code>align-items: stretch</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">align-content</div>
+                    <p>Aligns wrapped lines</p>
+                    <code>align-content: stretch</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Flex Item Properties</h2>
+            <div class="property-list">
+                <div class="property-card">
+                    <div class="property-name">order</div>
+                    <p>Controls the order of items</p>
+                    <code>order: 0</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">flex-grow</div>
+                    <p>Defines ability to grow</p>
+                    <code>flex-grow: 0</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">flex-shrink</div>
+                    <p>Defines ability to shrink</p>
+                    <code>flex-shrink: 1</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">flex-basis</div>
+                    <p>Sets the initial main size</p>
+                    <code>flex-basis: auto</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">flex</div>
+                    <p>Shorthand for grow, shrink, basis</p>
+                    <code>flex: 0 1 auto</code>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-name">align-self</div>
+                    <p>Overrides align-items</p>
+                    <code>align-self: auto</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Perfect Centering with Flexbox</h2>
+            <p>One of flexbox's most popular features is making centering easy:</p>
+            <pre><code>.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+            <p>This single rule centers content both horizontally and vertically!</p>
+        </section>
+
+        <section class="section">
+            <h2>Flexbox vs Grid</h2>
+            <p>
+                While flexbox is <span class="highlight">one-dimensional</span> (either row or column), CSS Grid is <span class="highlight">two-dimensional</span> (rows and columns simultaneously).
+            </p>
+            <p>
+                Use flexbox for:
+            </p>
+            <ul style="margin-left: 20px; color: #c9d1d9;">
+                <li>Navigation bars</li>
+                <li>Card layouts in a row/column</li>
+                <li>Centering content</li>
+                <li>Variable width items</li>
+            </ul>
+            <p>
+                Use Grid for:
+            </p>
+            <ul style="margin-left: 20px; color: #c9d1d9;">
+                <li>Complex page layouts</li>
+                <li>When you need both rows and columns</li>
+                <li>Precise placement of items</li>
+                <li>Overlapping elements</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Browser Support</h2>
+            <p>
+                Flexbox has excellent browser support. All modern browsers support flexbox, including:
+            </p>
+            <ul style="margin-left: 20px; color: #c9d1d9;">
+                <li>Chrome 29+</li>
+                <li>Firefox 28+</li>
+                <li>Safari 9+</li>
+                <li>Edge 12+</li>
+                <li>IE 11 (with some bugs)</li>
+            </ul>
+            <div class="note">
+                For older browsers, you might need vendor prefixes or fallbacks.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Common Flexbox Patterns</h2>
+            <h3>1. Holy Grail Layout</h3>
+            <pre><code>.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+}
+
+.content {
+    flex: 1;
+}
+
+.sidebar {
+    flex: 0 0 200px;
+}</code></pre>
+
+            <h3>2. Card Layout</h3>
+            <pre><code>.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 300px;
+}</code></pre>
+
+            <h3>3. Navigation Bar</h3>
+            <pre><code>.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}</code></pre>
+        </section>
+
+        <footer>
+            
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                Learn more about Flexbox at <a href="https://www.geeksforgeeks.org/css-flexbox/" style="color: #58a6ff; text-decoration: none;">GeeksforGeeks</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

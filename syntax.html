@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PHP Syntax Reference – Dark Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --accent: #58a6ff;
+            --text: #c9d1d9;
+            --muted: #8b949e;
+            --keyword: #ff7b72;
+            --string: #a5d6ff;
+            --comment: #8b949e;
+            --function: #d2a8ff;
+            --number: #79c0ff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        h1, h2, h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+        .section {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,.4);
+        }
+        pre {
+            background: #010409;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        code {
+            font-family: "Consolas", "Courier New", monospace;
+        }
+        .comment {
+            color: var(--comment);
+        }
+        .keyword {
+            color: var(--keyword);
+        }
+        .string {
+            color: var(--string);
+        }
+        .function {
+            color: var(--function);
+        }
+        .number {
+            color: var(--number);
+        }
+        ul {
+            margin-left: 1.2rem;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 align="center">PHP Syntax Reference</h1>
+
+    <div class="section">
+        <h2>1. PHP Tags</h2>
+        <p>PHP code is embedded inside <code>&lt;?php ... ?&gt;</code> tags.</p>
+        <pre><code><span class="comment">&lt;?php</span>
+<span class="comment">// PHP code goes here</span>
+<span class="keyword">echo</span> <span class="string">"Hello, world!"</span>;
+<span class="comment">?&gt;</span></code></pre>
+    </div>
+
+    <div class="section">
+        <h2>2. Comments</h2>
+        <ul>
+            <li>Single-line: <code>//</code> or <code>#</code></li>
+            <li>Multi-line: <code>/* ... */</code></li>
+        </ul>
+        <pre><code><span class="comment">// Single-line comment</span>
+<span class="comment"># Another single-line comment</span>
+<span class="comment">/* Multi-line
+   comment */</span></code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3. Variables</h2>
+        <p>Variables start with <code>$</code> and are case-sensitive.</p>
+        <pre><code><span class="keyword">$name</span> = <span class="string">"Alice"</span>;
+<span class="keyword">$age</span> = <span class="number">25</span>;
+<span class="keyword">$pi</span> = <span class="number">3.14</span>;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>4. Data Types</h2>
+        <ul>
+            <li>String</li>
+            <li>Integer</li>
+            <li>Float (double)</li>
+            <li>Boolean</li>
+            <li>Array</li>
+            <li>Object</li>
+            <li>NULL</li>
+        </ul>
+        <pre><code><span class="keyword">$str</span> = <span class="string">"Hello"</span>;
+<span class="keyword">$int</span> = <span class="number">10</span>;
+<span class="keyword">$float</span> = <span class="number">10.5</span>;
+<span class="keyword">$bool</span> = <span class="keyword">true</span>;
+<span class="keyword">$arr</span> = <span class="function">array</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>);
+<span class="keyword">$null</span> = <span class="keyword">NULL</span>;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>5. Strings</h2>
+        <p>Use single or double quotes; double quotes parse variables.</p>
+        <pre><code><span class="keyword">$greeting</span> = <span class="string">"Hello, $name!"</span>;
+<span class="keyword">$msg</span> = <span class="string">'Hello, $name'</span>; <span class="comment">// Outputs literal $name</span></code></pre>
+    </div>
+
+    <div class="section">
+        <h2>6. Constants</h2>
+        <p>Defined with <code>define()</code> or <code>const</code>.</p>
+        <pre><code><span class="function">define</span>(<span class="string">"SITE_NAME"</span>, <span class="string">"MyWebsite"</span>);
+<span class="keyword">const</span> MAX_SIZE = <span class="number">100</span>;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>7. Operators</h2>
+        <ul>
+            <li>Arithmetic: <code>+ - * / % **</code></li>
+            <li>Assignment: <code>= += -= *= /= %=</code></li>
+            <li>Comparison: <code>== === != !== < > <= >=</code></li>
+            <li>Logical: <code>&& || !</code></li>
+        </ul>
+        <pre><code><span class="keyword">$sum</span> = <span class="number">5</span> + <span class="number">3</span>;
+<span class="keyword">$check</span> = (<span class="number">5</span> > <span class="number">3</span>) && (<span class="number">2</span> < <span class="number">4</span>);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>8. Conditional Statements</h2>
+        <pre><code><span class="keyword">if</span> (<span class="keyword">$age</span> >= <span class="number">18</span>) {
+    <span class="keyword">echo</span> <span class="string">"Adult"</span>;
+} <span class="keyword">elseif</span> (<span class="keyword">$age</span> >= <span class="number">13</span>) {
+    <span class="keyword">echo</span> <span class="string">"Teen"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">echo</span> <span class="string">"Child"</span>;
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>9. Switch Statement</h2>
+        <pre><code><span class="keyword">switch</span> (<span class="keyword">$color</span>) {
+    <span class="keyword">case</span> <span class="string">"red"</span>:
+        <span class="keyword">echo</span> <span class="string">"Red color"</span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string">"blue"</span>:
+        <span class="keyword">echo</span> <span class="string">"Blue color"</span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        <span class="keyword">echo</span> <span class="string">"Other color"</span>;
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>10. Loops</h2>
+        <h3>for loop</h3>
+        <pre><code><span class="keyword">for</span> (<span class="keyword">$i</span> = <span class="number">0</span>; <span class="keyword">$i</span> < <span class="number">5</span>; <span class="keyword">$i</span>++) {
+    <span class="keyword">echo</span> <span class="keyword">$i</span>;
+}</code></pre>
+        <h3>while loop</h3>
+        <pre><code><span class="keyword">$i</span> = <span class="number">0</span>;
+<span class="keyword">while</span> (<span class="keyword">$i</span> < <span class="number">5</span>) {
+    <span class="keyword">echo</span> <span class="keyword">$i</span>;
+    <span class="keyword">$i</span>++;
+}</code></pre>
+        <h3>foreach loop</h3>
+        <pre><code><span class="keyword">$fruits</span> = <span class="function">array</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>);
+<span class="keyword">foreach</span> (<span class="keyword">$fruits</span> <span class="keyword">as</span> <span class="keyword">$fruit</span>) {
+    <span class="keyword">echo</span> <span class="keyword">$fruit</span>;
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>11. Functions</h2>
+        <pre><code><span class="keyword">function</span> <span class="function">add</span>(<span class="keyword">$a</span>, <span class="keyword">$b</span>) {
+    <span class="keyword">return</span> <span class="keyword">$a</span> + <span class="keyword">$b</span>;
+}
+<span class="keyword">$sum</span> = <span class="function">add</span>(<span class="number">3</span>, <span class="number">4</span>);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>12. Arrays</h2>
+        <h3>Indexed Arrays</h3>
+        <pre><code><span class="keyword">$cars</span> = <span class="function">array</span>(<span class="string">"Volvo"</span>, <span class="string">"BMW"</span>, <span class="string">"Toyota"</span>);
+<span class="keyword">echo</span> <span class="keyword">$cars</span>[<span class="number">0</span>];</code></pre>
+        <h3>Associative Arrays</h3>
+        <pre><code><span class="keyword">$age</span> = <span class="function">array</span>(<span class="string">"Peter"</span>=><span class="number">35</span>, <span class="string">"Ben"</span>=><span class="number">37</span>, <span class="string">"Joe"</span>=><span class="number">43</span>);
+<span class="keyword">echo</span> <span class="keyword">$age</span>[<span class="string">"Peter"</span>];</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>13. Superglobals</h2>
+        <ul>
+            <li><code>$GLOBALS</code></li>
+            <li><code>$_SERVER</code></li>
+            <li><code>$_REQUEST</code></li>
+            <li><code>$_POST</code></li>
+            <li><code>$_GET</code></li>
+            <li><code>$_SESSION</code></li>
+            <li><code>$_COOKIE</code></li>
+            <li><code>$_FILES</code></li>
+            <li><code>$_ENV</code></li>
+        </ul>
+        <pre><code><span class="keyword">echo</span> <span class="keyword">$_SERVER</span>[<span class="string">"PHP_SELF"</span>];</code></pre>
+    </div>
+
+    
+
+    <div class="section">
+        <h2>14. include & require</h2>
+        <ul>
+            <li><code>include</code> produces warning and continues</li>
+            <li><code>require</code> produces fatal error and stops</li>
+        </ul>
+        <pre><code><span class="function">include</span> <span class="string">"header.php"</span>;
+<span class="function">require</span> <span class="string">"config.php"</span>;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>15. Error Handling</h2>
+        <pre><code><span class="keyword">try</span> {
+    <span class="keyword">if</span> (<span class="keyword">$file</span> === <span class="keyword">false</span>) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function">Exception</span>(<span class="string">"File not found."</span>);
+    }
+} <span class="keyword">catch</span> (Exception <span class="keyword">$e</span>) {
+    <span class="keyword">echo</span> <span class="string">"Error: "</span> . <span class="keyword">$e</span>-&gt;getMessage();
+}</code></pre>
+    </div>
+
+    
+
+</body>
+</html>
