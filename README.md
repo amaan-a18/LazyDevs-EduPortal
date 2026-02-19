@@ -3,7 +3,7 @@ A lightweight, modular, and beginner-friendly **web-based study platform** built
 
 > 🎓 Perfect for learning web development fundamentals  
 > 📘 Includes tutorials, authentication, and study modules  
-> ⚡ Fast • Clean • Easy to customize  
+> ⚡ Fast • Clean • Easy to customize   
 
 ---
 
